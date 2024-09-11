@@ -1,0 +1,193 @@
+$background-color: #000;
+$color-primary: #fff;
+
+$row-gutter-sm: 2rem;
+
+@mixin d-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  overflow: hidden;
+}
+
+body {
+  font-family: sans-serif;
+  font-weight: 400;
+  box-sizing: border-box;
+  color: $color-primary;
+  background-color: #333;
+
+  @include d-flex;
+}
+
+.d-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr); // 8 columns for flexibility
+  grid-template-rows: auto;
+  column-gap: 1rem;
+  row-gap: 1rem;
+}
+
+.container {
+  margin-top: 10rem;
+  max-width: 28rem;
+  padding: 2rem;
+  background-color: $background-color;
+  box-shadow: 0 0 0.8rem rgba(255, 255, 255, 1);
+  border-radius: 1rem;
+  overflow: hidden;
+
+  &-grid {
+    display: grid; // Ensure display: grid is applied
+    grid-template-areas:
+      "first second"
+      "multiple aside"
+      "divides aside"
+      "addition aside"
+      "substraction aside"
+      "modulus aside"
+      "exponential aside";
+    grid-template-columns: repeat(8, 1fr); // Create 8 columns for layout
+    grid-gap: 1rem;
+  }
+
+  #first-input {
+    grid-area: first;
+    grid-column: span 4;
+  }
+
+  #second-input {
+    grid-area: second;
+    grid-column: span 4;
+  }
+
+  #first-input,
+  #second-input {
+    margin-bottom: $row-gutter-sm;
+    height: 4.8rem;
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 600;
+    text-align: right;
+    padding-right: 2rem;
+    border: 2px solid #fff;
+    border-radius: 0.5rem;
+    outline: none;
+    position: relative;
+    // caret-color: transparent;
+  }
+
+  button,
+  input {
+    background-color: inherit;
+    color: inherit;
+  }
+
+  input {
+    // position: relative;
+
+    &::after {
+      content: "|";
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #fff;
+
+      font-size: 1.6rem;
+
+      // animation: beep-caret 1s infinite;
+    }
+
+    /* Chrome, Safari, Edge, Opera */
+    &[type="number"]::-webkit-outer-spin-button,
+    &[type="number"]::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* Firefox */
+    &[type="number"] {
+      -moz-appearance: textfield;
+    }
+  }
+
+  button {
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 0 0.5rem rgba($color-primary, 0.1);
+    font-size: 1.6rem;
+    font-weight: 800;
+    grid-column: span 2 !important; // Ensure grid-column span is applied
+    height: 3rem; // Optional: adjust button height
+    transition: all 0.3s;
+
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+
+    &:hover {
+      transform: translateY(-0.2rem);
+      box-shadow: 0 0 0.5rem rgba($color-primary, 0.2);
+    }
+
+    &:active {
+      transform: translateY(-0.1rem);
+    }
+  }
+
+  .multiple {
+    grid-area: multiple;
+  }
+
+  .divides {
+    grid-area: divides;
+  }
+
+  .addition {
+    grid-area: addition;
+  }
+
+  .substraction {
+    grid-area: substraction;
+  }
+
+  .modulus {
+    grid-area: modulus;
+  }
+
+  .exponential {
+    grid-area: exponential;
+  }
+
+  .output-container {
+    grid-area: aside;
+    border: 1px solid #ccc;
+    grid-column: span 6;
+
+    @include d-flex;
+    font-size: 2rem;
+  }
+}
+
+@keyframes beep-caret {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic Calculator</title>
+  </head>
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <body>
+    <div class="container">
+      <main class="d-grid container-grid">
+        <input type="number" name="" id="first-input" placeholder="0" />
+        <input type="number" name="" id="second-input" placeholder="0" />
+
+        <button class="multiple">*</button>
+        <button class="divides">/</button>
+        <button class="addition">+</button>
+        <button class="substraction">-</button>
+        <button class="modulus">%</button>
+        <button class="exponential">^</button>
+
+        <div class="output-container">
+          <span class="output-value"></span>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      let firstInput, secondInput, outputValue;
+
+      firstInput = document.getElementById("first-input");
+      secondInput = document.getElementById("second-input");
+      outputValue = document.querySelector(".output-value");
+
+      let addition, muldisubstraction, modulus, exponential;
+
+      addition = document.querySelector(".addition");
+      multiple = document.querySelector(".multiple");
+      divides = document.querySelector(".divides");
+      substraction = document.querySelector(".substraction");
+      modulus = document.querySelector(".modulus");
+      exponential = document.querySelector(".exponential");
+
+      // functionality
+
+      //   const inputOperation = exponential.addEventListener("click", function (operator) {
+      //     firstInput = Number(firstInput.value);
+      //     secondInput = Number(secondInput.value);
+
+      //     outputValue.textContent = `firstInput ${operator} secondInput`;
+
+      //     console.log(outputValue.textContent);
+      //   });
+
+      //  exponential = inputOperation(**)
+
+      exponential.addEventListener("click", function () {
+        firstInput = Number(firstInput.value);
+        secondInput = Number(secondInput.value);
+
+        outputValue.textContent = firstInput ** secondInput;
+
+        console.log(outputValue.textContent);
+      });
+
+      modulus.addEventListener("click", function () {
+        firstInput = Number(firstInput.value);
+        secondInput = Number(secondInput.value);
+        outputValue.textContent = firstInput % secondInput;
+
+        if (outputValue.textContent === NaN) {
+          return (outputValue.textContent = "Error");
+        }
+      });
+
+      multiple.addEventListener("click", function () {
+        firstInput = Number(firstInput.value);
+        secondInput = Number(secondInput.value);
+        outputValue.textContent = firstInput * secondInput;
+
+        console.log(outputValue.textContent);
+      });
+
+      addition.addEventListener("click", function () {
+        firstInput = Number(firstInput.value);
+        secondInput = Number(secondInput.value);
+        let sum = firstInput + secondInput;
+
+        outputValue.textContent = sum;
+
+        console.log(outputValue.textContent);
+      });
+
+      substraction.addEventListener("click", function () {
+        firstInput = Number(firstInput.value);
+        secondInput = Number(secondInput.value);
+        outputValue.textContent = firstInput - secondInput;
+
+        console.log(outputValue.textContent);
+      });
+
+      divides.addEventListener("click", function () {
+        firstInput = Number(firstInput.value);
+        secondInput = Number(secondInput.value);
+        outputValue.textContent = firstInput / secondInput;
+
+        console.log(outputValue.textContent);
+      });
+    </script>
+  </body>
+</html>
