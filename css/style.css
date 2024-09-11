@@ -36,7 +36,7 @@ body {
   overflow: hidden; }
   .container-grid {
     display: grid;
-    grid-template-areas: "first second" "multiple aside" "divides aside" "addition aside" "substraction aside" "modulus aside" "exponential aside";
+    grid-template-areas: "first first second second" "multiple divides substraction addition" "root aside aside aside" "exponential aside aside aside" "modulus aside aside aside" "clear aside aside aside";
     grid-template-columns: repeat(8, 1fr);
     grid-gap: 1rem; }
   .container #first-input {
@@ -98,10 +98,12 @@ body {
     grid-area: multiple; }
   .container .divides {
     grid-area: divides; }
-  .container .addition {
-    grid-area: addition; }
   .container .substraction {
     grid-area: substraction; }
+  .container .addition {
+    grid-area: addition; }
+  .container .root {
+    grid-area: root; }
   .container .modulus {
     grid-area: modulus; }
   .container .exponential {
@@ -114,6 +116,8 @@ body {
     justify-content: center;
     align-items: center;
     font-size: 2rem; }
+  .container .output-container {
+    border-radius: 0.3rem; }
 
 @keyframes beep-caret {
   0%,

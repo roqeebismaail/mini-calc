@@ -52,13 +52,12 @@ body {
   &-grid {
     display: grid; // Ensure display: grid is applied
     grid-template-areas:
-      "first second"
-      "multiple aside"
-      "divides aside"
-      "addition aside"
-      "substraction aside"
-      "modulus aside"
-      "exponential aside";
+      "first first second second"
+      "multiple divides substraction addition"
+      "root aside aside aside"
+      "exponential aside aside aside"
+      "modulus aside aside aside"
+      "clear aside aside aside";
     grid-template-columns: repeat(8, 1fr); // Create 8 columns for layout
     grid-gap: 1rem;
   }
@@ -156,12 +155,16 @@ body {
     grid-area: divides;
   }
 
+  .substraction {
+    grid-area: substraction;
+  }
+
   .addition {
     grid-area: addition;
   }
 
-  .substraction {
-    grid-area: substraction;
+  .root {
+    grid-area: root;
   }
 
   .modulus {
@@ -179,6 +182,12 @@ body {
 
     @include d-flex;
     font-size: 2rem;
+  }
+
+  .output-container {
+    // overflow: hidden;
+    // height: calc(100% - 2rem);
+    border-radius: 0.3rem;
   }
 }
 

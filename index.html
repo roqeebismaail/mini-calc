@@ -15,11 +15,13 @@
         <input type="number" name="" id="second-input" placeholder="0" />
 
         <button class="multiple">*</button>
-        <button class="divides">/</button>
-        <button class="addition">+</button>
+        <button class="divides">÷</button>
         <button class="substraction">-</button>
-        <button class="modulus">%</button>
+        <button class="addition">+</button>
         <button class="exponential">^</button>
+        <button class="root">√</button>
+        <button class="modulus">%</button>
+        <button class="clear">C</button>
 
         <div class="output-container">
           <span class="output-value"></span>
@@ -28,13 +30,14 @@
     </div>
 
     <script>
-      let firstInput, secondInput, outputValue;
+      let firstInput, secondInput, outputValue, firstValue, secondValue;
 
       firstInput = document.getElementById("first-input");
       secondInput = document.getElementById("second-input");
+
       outputValue = document.querySelector(".output-value");
 
-      let addition, muldisubstraction, modulus, exponential;
+      let addition, muldisubstraction, modulus, exponential, clear;
 
       addition = document.querySelector(".addition");
       multiple = document.querySelector(".multiple");
@@ -42,71 +45,48 @@
       substraction = document.querySelector(".substraction");
       modulus = document.querySelector(".modulus");
       exponential = document.querySelector(".exponential");
+      clear = document.querySelector(".clear");
 
-      // functionality
-
-      //   const inputOperation = exponential.addEventListener("click", function (operator) {
-      //     firstInput = Number(firstInput.value);
-      //     secondInput = Number(secondInput.value);
-
-      //     outputValue.textContent = `firstInput ${operator} secondInput`;
-
-      //     console.log(outputValue.textContent);
-      //   });
-
-      //  exponential = inputOperation(**)
+      clear.addEventListener("click", function () {
+        firstInput.value = "";
+        secondInput.value = "";
+      });
 
       exponential.addEventListener("click", function () {
-        firstInput = Number(firstInput.value);
-        secondInput = Number(secondInput.value);
+        firstValue = Number(firstInput.value);
+        secondValue = Number(secondInput.value);
 
-        outputValue.textContent = firstInput ** secondInput;
-
-        console.log(outputValue.textContent);
+        outputValue.textContent = firstValue ** secondValue;
       });
 
       modulus.addEventListener("click", function () {
-        firstInput = Number(firstInput.value);
-        secondInput = Number(secondInput.value);
-        outputValue.textContent = firstInput % secondInput;
-
-        if (outputValue.textContent === NaN) {
-          return (outputValue.textContent = "Error");
-        }
+        firstValue = Number(firstInput.value);
+        secondValue = Number(secondInput.value);
+        outputValue.textContent = firstValue % secondValue;
       });
 
       multiple.addEventListener("click", function () {
-        firstInput = Number(firstInput.value);
-        secondInput = Number(secondInput.value);
-        outputValue.textContent = firstInput * secondInput;
-
-        console.log(outputValue.textContent);
+        firstValue = Number(firstInput.value);
+        secondValue = Number(secondInput.value);
+        outputValue.textContent = firstValue * secondValue;
       });
 
       addition.addEventListener("click", function () {
-        firstInput = Number(firstInput.value);
-        secondInput = Number(secondInput.value);
-        let sum = firstInput + secondInput;
-
-        outputValue.textContent = sum;
-
-        console.log(outputValue.textContent);
+        firstValue = Number(firstInput.value);
+        secondValue = Number(secondInput.value);
+        outputValue.textContent = firstValue + secondValue;
       });
 
       substraction.addEventListener("click", function () {
-        firstInput = Number(firstInput.value);
-        secondInput = Number(secondInput.value);
-        outputValue.textContent = firstInput - secondInput;
-
-        console.log(outputValue.textContent);
+        firstValue = Number(firstInput.value);
+        secondValue = Number(secondInput.value);
+        outputValue.textContent = firstValue - secondValue;
       });
 
       divides.addEventListener("click", function () {
-        firstInput = Number(firstInput.value);
-        secondInput = Number(secondInput.value);
-        outputValue.textContent = firstInput / secondInput;
-
-        console.log(outputValue.textContent);
+        firstValue = Number(firstInput.value);
+        secondValue = Number(secondInput.value);
+        outputValue.textContent = firstValue / secondValue;
       });
     </script>
   </body>
